@@ -1,0 +1,80 @@
+PRAC 1,2,3,4,5
+
+* Write a program to give a demo of ECHO and PRINT command.
+
+<!DOCTYPE html>
+<html>
+<body>
+<?php  
+   echo "<h3>This is my first php program!"."</br>";
+   echo "Hello "."World!"."<h2>PHP is fun to program</h2>";  
+   echo "This ", "string ", "was ", "made ", "with multiple parameters.";
+   echo"</br>";
+print ("Use of print command, takes only one parameter.");
+?> 	
+</body>
+</html>
+-------------------------------------------------------------------------------------
+ *Example on for loop factorial number
+
+
+<?php
+//PHP code to get the factorial of a number
+function factorial($number){
+         $factorial=1;
+         for($i=1;$i<=$number;$i++){
+         $factorial=$factorial*$i;
+         }
+         return$factorial;
+}
+$number=5;
+$fact=factorial($number);
+echo"factorial=$fact";
+?>
+-----------------------------------------------------------------------------------
+
+* Example on while loop factorial number.
+Source Code:
+<?php
+$number=0;
+$a=0;
+$b=1;
+echo"\n";
+echo $a.' '.$b.' '; 
+while($number<10)
+{
+$c=$b+$a;
+echo$c.' ';
+$a=$b;
+$b=$c;
+$number=$number+1;
+}
+?>
+-------------------------------------------------------------------------------------
+
+prac5
+
+Code:
+<?php 
+$servername = "localhost";
+$username= "root";
+$password="ckt";
+$dbname="mysql1";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed:" .$conn->connect_error);
+}
+echo "Connected Successfully";
+$sql ="Insert into user (name, email) values ('Prachi', 'kanishka@gmail.com')";
+$sql="Insert into user (name, email) values ('Ruchita', 'ruchita@gmail.com')";
+$sql="Insert into user (name, email) values ('Gauri', 'gauri@gmail.com')";
+$sql="Insert into user (name, email) values ('lavs', 'lavanya@gmail.com')";
+
+if ($conn->query($sql) == TRUE) {
+    echo "New Record created successfully";
+} else {
+     echo "Error: " . $sql . "<br>" ,$conn->error;
+}
+$conn->close();
+?>
+----------------------------------------------------------------------------------------------

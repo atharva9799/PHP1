@@ -1,0 +1,155 @@
+PRAC 6,7
+
+Aim: Write a program to update the values of table database MY Sql. 
+Code
+<?php 
+$servername = "localhost";
+$username= "root";
+$password="ckt";
+$dbname="mysql1";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed:" .$conn->connect_error);
+}
+echo "Connected Successfully";
+$sql="Update user Set email = 'phadkaruc@gmail.com' where id=2";
+$sql="Update user Set name = 'Gauri Jagadale' where id=3";
+if ($conn->query($sql) === TRUE) {
+    echo " Record update successfully";
+} else {
+     echo "Error: " . $sql . "<br>" ,$conn->error;
+}
+$conn->close();
+?>
+
+* MYSQL
+select * from user;
+-----------------------------------------------------------------------------------------
+
+Aim: Write a program to delete the value of table database My Sql.
+Code
+<?php 
+$servername = "localhost";
+$username= "root";
+$password="ckt";
+$dbname="mysql1";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed:" .$conn->connect_error);
+}
+echo "Connected Successfully";
+$sql="Delete from user where id=1";
+if ($conn->query($sql) === TRUE) {
+    echo " Record deleted successfully";
+} else {
+     echo "Error: " . $sql . "<br>" ,$conn->error;
+}
+$conn->close();
+?>
+
+* MYSQL
+select * from user;
+--------------------------------------------------------------------------------------------
+
+
+* Step 01- Create a file and write content on the file.
+
+Code
+<?php
+echo "Writing to a file...\n";
+$filename = "tmp.txt";
+$file = fopen($filename, "w");
+if ($file === false) {
+    echo "Error in opening the file.";
+    exit(); 
+}
+$content = "Hello FYCS Students! This is an updated PHP script .\nEnjoy learning PHP and have a great day!";
+fwrite($file, $content);
+fclose($file);
+echo "File has been written successfully.\n";
+?>
+--------------------------------------------------------------------------------------------------
+* Step 02:- Read the content data of the file.
+Code:
+<?php
+$filename = "tmp.txt";
+if (file_exists($filename)) {
+    $file = fopen($filename, "r");
+    if ($file) {
+        echo "Reading the content of the file: \n";
+        while (($line = fgets($file)) !== false) {
+            echo $line; // Display each line
+        }
+        fclose($file);
+    } else {
+        echo "Error: Unable to open the file.";
+    }
+} else {
+    echo "Error: File does not exist.";
+}
+?>
+-------------------------------------------------------------------------------------------------------
+
+*Program on Session handling.
+
+Code
+<?php
+session_start();
+?>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>PHP Session Example</title>
+</head>
+<body>
+<?php
+$_SESSION["favcolor"] = "Purple"; 
+$_SESSION["favanimal"] = "cat";  
+echo "Session is set!<br>";
+echo "<p>Kanishka's  fav color:" . $_SESSION["favcolor"] . "</p>";
+echo "<p>Ruchita likes: " . $_SESSION["favanimal"] . "</p>";
+?>
+</body>
+</html>
+------------------------------------------------------------------------------------------------------------
+
+* Program on the cookies handling.
+
+Step 1:- Set the cookies.
+Code
+<?php
+setcookie("User","Atharva", time() + 3600, "/"); 
+?>
+<html>
+<body>
+<?php
+if (isset($_COOKIE["User"])) {
+   echo "Cookie 'User' is set! Value: " .$_COOKIE["User"];
+} else {
+      echo "Cookie 'User' is not set!";
+}
+?>
+</body>
+</html>
+
+* Step 2:- Delete cookies
+Code
+<?php
+setcookie("User","Kanishka", time() -3600, "/"); 
+?>
+<html>
+<body>
+<?php
+if (isset($_COOKIE["User"])) {
+   echo "Cookie 'User' is still set! Value: " .$_COOKIE["User"];
+} else {
+      echo "Cookie 'User' has been deleted!";
+}
+?>
+</body>
+</html>
+
+
+-------------------------------------------------------------------------------------------------
+
+
